@@ -1,6 +1,6 @@
 #!/bin/bash
-sudo mv /etc/yum.repos.d/fedora-updates.repo /tmp/
-sudo mv /etc/yum.repos.d/fedora-updates-modular.repo /tmp/
+#sudo mv /etc/yum.repos.d/fedora-updates.repo /tmp/
+#sudo mv /etc/yum.repos.d/fedora-updates-modular.repo /tmp/
 sudo yum clean all
 #sudo yum update -y
 DATABASE_PASS='admin123'

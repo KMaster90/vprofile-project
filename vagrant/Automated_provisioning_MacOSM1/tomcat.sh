@@ -1,5 +1,5 @@
-sudo mv /etc/yum.repos.d/fedora-updates.repo /tmp/
-sudo mv /etc/yum.repos.d/fedora-updates-modular.repo /tmp/
+#sudo mv /etc/yum.repos.d/fedora-updates.repo /tmp/
+#sudo mv /etc/yum.repos.d/fedora-updates-modular.repo /tmp/
 sudo yum clean all
 #sudo yum update
 TOMURL="https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.75/bin/apache-tomcat-9.0.75.tar.gz"
@@ -9,8 +9,8 @@ cd /tmp/
 wget $TOMURL -O tomcatbin.tar.gz
 EXTOUT=`tar xzvf tomcatbin.tar.gz`
 TOMDIR=`echo $EXTOUT | cut -d '/' -f1`
-useradd --shell /sbin/nologin tomcat
-rsync -avzh /tmp/$TOMDIR/ /usr/local/tomcat/
+useradd --home-dir /usr/local/tomcat --shell /sbin/nologin tomcat
+cp -r /tmp/apache-tomcat-9.0.75/* /usr/local/tomcat/
 chown -R tomcat.tomcat /usr/local/tomcat
 
 rm -rf /etc/systemd/system/tomcat.service
